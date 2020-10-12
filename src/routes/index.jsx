@@ -10,15 +10,24 @@ export default function Routes() {
         <Route path="/" exact>
           <h3>Index</h3>
         </Route>
-        <Route path="/public">
+        <Route path="/public" exact>
           <h3>Public</h3>
         </Route>
-        <Route path="/login">
+        <Route path="/login" exact>
           <h3>Login</h3>
         </Route>
-        <PrivateRoute path="/protected">
-          <h3>Protected</h3>
+        <PrivateRoute path="/car" exact>
+          <Redirect to="/car/list" />
         </PrivateRoute>
+        <PrivateRoute path="/car/list" exact>
+          <h3>Car list</h3>
+        </PrivateRoute>
+        <PrivateRoute path="/car/add" exact>
+          <h3>Car Add</h3>
+        </PrivateRoute>
+        <Route path="*">
+          <h3>404</h3>
+        </Route>
       </Switch>
     </Router>
   );
