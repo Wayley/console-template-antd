@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
+import Login from '../pages/login'
 
 
 export default function Routes() {
@@ -14,7 +15,7 @@ export default function Routes() {
           <h3>Public</h3>
         </Route>
         <Route path="/login" exact>
-          <h3>Login</h3>
+          <Login />
         </Route>
         <PrivateRoute path="/car" exact>
           <Redirect to="/car/list" />
@@ -25,6 +26,9 @@ export default function Routes() {
         <PrivateRoute path="/car/add" exact>
           <h3>Car Add</h3>
         </PrivateRoute>
+        <PrivateRoute path="/car/:id" exact>
+          <h3>Car detail</h3>
+        </PrivateRoute>
         <Route path="*">
           <h3>404</h3>
         </Route>
@@ -32,7 +36,6 @@ export default function Routes() {
     </Router>
   );
 }
-
 const fakeAuth = {
   isAuthenticated: false,
   authenticate(cb) {
