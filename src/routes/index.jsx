@@ -29,6 +29,9 @@ export default function Routes() {
         <PrivateRoute path="/car/:id" exact>
           <h3>Car detail</h3>
         </PrivateRoute>
+        <Route path="403">
+          <h3>403</h3>
+        </Route>
         <Route path="*">
           <h3>404</h3>
         </Route>
